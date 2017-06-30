@@ -11,6 +11,9 @@ namespace Demo
     {
         protected void Application_Start()
         {
+            //只允許JSON回傳
+            GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
+
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }

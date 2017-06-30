@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Tests", "Demo.Tests\Demo.Tests.csproj", "{A4E39DC3-094A-4CFF-81A3-9A8B17229342}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth", "Auth\Auth.csproj", "{DD6170FD-0656-4C21-BCF7-2A9543551C56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A4E39DC3-094A-4CFF-81A3-9A8B17229342}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4E39DC3-094A-4CFF-81A3-9A8B17229342}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4E39DC3-094A-4CFF-81A3-9A8B17229342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD6170FD-0656-4C21-BCF7-2A9543551C56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD6170FD-0656-4C21-BCF7-2A9543551C56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD6170FD-0656-4C21-BCF7-2A9543551C56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD6170FD-0656-4C21-BCF7-2A9543551C56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
