@@ -1,4 +1,5 @@
-﻿using Demo.Controllers.Base;
+﻿using BLL.Order;
+using Demo.Controllers.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,31 +11,48 @@ namespace Demo.Controllers
 {
     public class OrderController : BaseApiController
     {
+        OrderBLL OrderBLLObj = new OrderBLL();
+
+        [AllowAnonymous]
         // GET: api/Order
-        public IEnumerable<string> Get()
+        public IEnumerable<ViewModel.Order> Get()
         {
-            return new string[] { "value1", "value2" };
+            return OrderBLLObj.Query<ViewModel.Order>();
         }
 
+        [AllowAnonymous]
         // GET: api/Order/5
-        public string Get(int id)
+        public IEnumerable<ViewModel.Order> Get(int id)
         {
-            return "value";
+            return OrderBLLObj.Query<ViewModel.Order>(id);
         }
 
         // POST: api/Order
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post([FromBody]ViewModel.Order value)
         {
+            OrderBLLObj.Insert(value);
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         // PUT: api/Order/5
-        public void Put(int id, [FromBody]string value)
+        public HttpResponseMessage Put(int id, [FromBody]ViewModel.Order value)
         {
+            value.OrderID = id;
+            OrderBLLObj.Update(value);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        public HttpResponseMessage Put([FromBody]ViewModel.Order value)
+        {
+            OrderBLLObj.Update(value);
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         // DELETE: api/Order/5
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
+            OrderBLLObj.Delete(id);
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
     }
 }

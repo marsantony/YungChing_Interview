@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Serialization;
+﻿using Demo.Filters;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,9 @@ namespace Demo
         public static void Register(HttpConfiguration config)
         {
             // Web API 設定和服務
+            config.Filters.Add(new AuthorizeAttribute());
+            config.Filters.Add(new ModelStateValidationFilterAttribute());
+            config.Filters.Add(new SimpleExceptionFilterAttribute());
 
             // Web API 路由
             config.MapHttpAttributeRoutes();
@@ -21,8 +25,6 @@ namespace Demo
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-
-            config.Filters.Add(new AuthorizeAttribute());
 
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
